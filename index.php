@@ -1,4 +1,3 @@
-
 <?php
 // Page created by Shepard [Fabian Pijcke] <Shepard8@laposte.net>
 // Arno Esterhuizen <arno.esterhuizen@gmail.com>
@@ -10,7 +9,7 @@
 //
 //
 //
-
+header("content-type:text/html;charset=utf-8");
 $server_dir = "../";
 
 require $server_dir.'scripts/config.inc.php';
