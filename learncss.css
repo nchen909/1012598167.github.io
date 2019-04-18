@@ -1,0 +1,29 @@
+body{
+    background: #EEE;
+}
+#container{
+    background: white;
+    width:800px;/*整个框的长度*/
+    margin-left: auto;/*居中*/
+    margin-right:auto;/*居中*/
+}
+#header{
+    background-color: #66ccff;
+    color:white;
+    text-align:center; /*居中*/
+}
+#content{
+    padding:100px;/*有边界*/
+}
+#nav{
+    width:180px;
+    float:left;
+    /*浮动到左边*/
+}
+#main{
+    width:60px;
+    float:right;
+}
+#footer{
+    clear:both;/*浮到footer的不要 为了美化*/
+}
