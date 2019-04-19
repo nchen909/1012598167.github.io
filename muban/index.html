@@ -34,7 +34,7 @@
 	  <a href="#2" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
 	</li>
 	<li class="nav__item">
-	  <a href="#3" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
+	  <a href="sgs/index.html" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
 	</li>
 	<li class="nav__item">
 	  <a href="#4" class="nav__link c-green"><img src="img/contact-icon.png" alt=""></a>
@@ -96,7 +96,7 @@
 					<h4>Curabitur varius sapien</h4>
 					<p>Nulla vel accumsan dui. Aliquam tincidunt elit elit, nec iaculis neque interdum dictum. Donec venenatis quam enim, eu mattis arcu rhoncus id. Ut ac urna tellus.</p>
 					<div class="primary-button">
-					  <a href="#3">Discover More</a>
+					  <a href="sgs/index.html">Discover More</a>
 					</div>
 				  </div>
 				</div>
@@ -228,20 +228,21 @@
 			  <div class="row">
 				<div class="col-md-8">
 				  <div class="contat-form">
-					<form id="contact" action="" method="post">
-					  <fieldset>
-						<input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
-					  </fieldset>
+					<form id="contact" action="message2/sendmail.php" method="post">
 						<fieldset>
-							<input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
+							<input name="toemail" type="email" class="form-control" id="email" placeholder="Email" required="">
 						</fieldset>
 					  <fieldset>
-						<input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
+						<input name="pass" type="password" class="form-control" id="pass" placeholder="autorization code" required="">
 					  </fieldset>
 					  <fieldset>
-						<textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>
+						<input name="title" class="form-control" id="title" placeholder="title" required="">
 					  </fieldset>
+						<fieldset>
+							<textarea name="content" rows="6" class="form-control" id="message" placeholder="Content" required=""></textarea>
+						</fieldset>
 					  <fieldset>
+						  <!--<input type="submit" value="发送"  />-->
 						<button type="submit" id="form-submit" class="btn">Send Message</button>
 					  </fieldset>
 					</form>
@@ -249,7 +250,7 @@
 				</div>
 				<div class="col-md-4">
 				  <div class="more-info">
-					<p>Lorem ipsum dolor , consectetur adipiscing elit. Nunc purus ligula, ullamcorper id velit id, vestibulum auc sapien. Sed quis mauris eget sem imperdiet rhoncus.<br><br>
+					<p>注意！请输入SHTP激活码而不是邮箱密码！若密码不正确将发送失败！<br><br>
 					<em>3344 Etiam mauris erat,
 						<br>Vestibulum eu augue nec, 10550</em></p>
 				  </div>

@@ -1,0 +1,16 @@
+extension["军争包加强版"]={
+	intro:"特别说明:<li>开启本扩展时，所有人免疫除了【武魂】的其他普通即死效果<li>开启本扩展时，武将【神座】在场时，立即退出游戏",
+	author:"冰波水微",
+	netdisk:"",
+	forum:"",
+	version:"2.1",
+	files:["jz_董白.jpg","extension.js","jz_sp黄月英.jpg","jz_严法1.mp3","jz_关云长.jpg","jz_冷血皇后.jpg",
+		"jz_刘玄德.jpg","jz_华佗.jpg","jz_华雄.jpg","jz_司马仲达.jpg","jz_吕子明.jpg","jz_周幼平.jpg","jz_周瑜&小乔.jpg",
+		"jz_孔融.jpg","jz_孙伯符.jpg","jz_孙文台.jpg","jz_左仙人.jpg","jz_左元放.jpg","jz_张宝.jpg","jz_张翼德.jpg",
+		"jz_张飞.jpg","jz_徐公明.jpg","jz_暗香1.mp3","jz_曹仓舒.jpg","jz_曹孟德.jpg","jz_李曼成.jpg","jz_甄宓.jpg",
+		"jz_甘兴霸.jpg","jz_监军谋国.jpg","jz_神司马懿.jpg","jz_神曹操.jpg","jz_神邓艾.jpg","jz_绝境之龙.jpg",
+		"jz_绝情人.jpg","jz_荀文若.jpg","jz_董胖.jpg","jz_袁大嘴.jpg","jz_诸葛孔明.jpg","jz_贾文和.jpg","jz_赵襄.jpg",
+		"jz_透心凉。.jpg","jz_邓士载.jpg","jz_邹夫人.jpg","jz_郭奉孝.jpg","jz_陆伯言.jpg","jz_隐退1.mp3","jz_马孟起.jpg",
+		"jz_马岱.jpg","jz_魏文帝.jpg","jz_麒麟儿.jpg","jz_黄叙.jpg","jz_黄权.jpg","package.js","聚心1.mp3"],
+	size:"966KB"
+};
