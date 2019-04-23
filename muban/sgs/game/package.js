@@ -6,6 +6,7 @@ window.noname_package={
 		yijiang:'一将成名',
 		sp:'SP',
 		extra:'神将',
+		extensionszy:'新神周瑜',
 		old:'怀旧',
 		diy:'DIY',
 		yxs:'英雄杀',
@@ -34,6 +35,7 @@ window.noname_package={
 		cardpile:'牌堆补充',
 		wuxing:'五行生克',
 		coin:'富甲天下',
+		xinshenzhouyu:'新神周瑜',
 	},
 	mode:{
 		identity:'身份',

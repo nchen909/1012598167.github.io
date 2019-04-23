@@ -3835,6 +3835,29 @@
 					}
 				},
 			},
+            xinshenzhouyu:{
+                enable:{
+                    name:'开启',
+                    init:false,
+                    restart:true,
+                },
+                intro:{
+                    name:'每名角色和部分卡牌在游戏开始时随机获得一个属性',
+                    clear:true,
+                    nopointer:true,
+                },
+                num:{
+                    name:'带属性卡牌',
+                    init:'0.3',
+                    item:{
+                        '0.1':'10%',
+                        '0.2':'20%',
+                        '0.3':'30%',
+                        '0.5':'50%',
+                    }
+                },
+
+            },
 			coin:{
 				enable:{
 					name:'开启',

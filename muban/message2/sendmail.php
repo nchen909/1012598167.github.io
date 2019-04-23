@@ -1,3 +1,7 @@
+<!--<script type="text/javascript" src="../js/vendor/bootstrap.js"></script>-->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/templatemo-style.css">
 <?php
 $servername = "localhost";
 $username = "root";
@@ -35,12 +39,19 @@ $state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, 
 
 echo "<div style='width:300px; margin:36px auto;'>";
 if($state==""){
-    ?><script type="text/javascript">alert ("对不起，邮件发送失败！请检查邮箱或授权码填写是否有误。");</script><?php
-    echo "<a href='../index.html'>点此返回</a>";
+    ?><script type="text/javascript">alert ("对不起，邮件发送失败！请检查邮箱或授权码填写是否有误。");</script>
+    <div class="primary-button">
+        <a href='../index.html'>点此返回</a>
+	</div>
+    <?php
+//    echo "<a href='../index.html'>点此返回</a>";
     exit();
 }
-?><script type="text/javascript">alert ("恭喜！邮件发送成功！！");</script><?php
-echo "<a href='../index.html'>点此返回</a>";
+?><script type="text/javascript">alert ("恭喜！邮件发送成功！！");</script>
+<div class="primary-button">
+        <a href='../index.html'>点此返回</a>
+	</div>
+<?php
 echo "</div>";
 
 ?>

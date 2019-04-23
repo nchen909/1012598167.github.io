@@ -1,16 +1,13 @@
-game.import("play",function(lib,game,ui,get,ai,_status){return {name:"新神周瑜",content:function (config,pack){
-    
-},precontent:function (){
-    
-},help:{},config:{},package:{
-    character:{
+'use strict';
+game.import("character",function(lib,game,ui,get,ai,_status){
+    return {
+        name:"新神周瑜",
         character:{
             "xin_shenzhouyu":["male","shen",4,["xin_qinyin","xin_yeyan"],[]],
         },
-        translate:{
-            "xin_shenzhouyu":"神周瑜",
-        },
-    },
+        characterIntro:{
+            xin_shenzhouyu:'mathskiller改版 改了内核',
+         },
     card:{
         card:{
         },
@@ -18,7 +15,7 @@ game.import("play",function(lib,game,ui,get,ai,_status){return {name:"新神周�
         },
         list:[],
     },
-    skill:{
+
         skill:{
             "xin_qinyin":{
                 audio:["qinyin",2],
@@ -176,15 +173,11 @@ return get.damageEffect(target,player,target,'fire');//全场没猜了，按伤�
             },
         },
         translate:{
-            "xin_qinyin":"琴音",
-            "xin_qinyin_info":"弃牌阶段结束时，若你于此阶段内弃置过你的至少两张手牌，则你可以选择一项：1. 所有角色各回复1点体力；2. 所有角色各失去1点体力。结算后摸2张牌。",
-            "xin_yeyan":"业炎",
-            "xin_yeyan_info":"限定技，出牌阶段，你可以对一至三名角色造成至多共3点火焰伤害（你可以任意分配每名目标角色受到的伤害点数），若你将对一名角色分配2点或更多的火焰伤害，你须先弃置四张不同花色的手牌再失去3点体力。",
+            xin_shenzhouyu:'新神周瑜',
+            xin_qinyin:"琴音",
+            xin_qinyin_info:"弃牌阶段结束时，若你于此阶段内弃置过你的至少两张手牌，则你可以选择一项：1. 所有角色各回复1点体力；2. 所有角色各失去1点体力。结算后摸2张牌。",
+            xin_yeyan:"业炎",
+            xin_yeyan_info:"限定技，出牌阶段，你可以对一至三名角色造成至多共3点火焰伤害（你可以任意分配每名目标角色受到的伤害点数），若你将对一名角色分配2点或更多的火焰伤害，你须先弃置四张不同花色的手牌再失去3点体力。",
         },
-    },
-    intro:"",
-    author:"mathskiller",
-    diskURL:"",
-    forumURL:"",
-    version:"1.0",
-},files:{"character":["xin_shenzhouyu.jpg"],"card":[],"skill":[]}}})
+    };
+});
