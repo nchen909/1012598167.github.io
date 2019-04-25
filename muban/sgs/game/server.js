@@ -126,7 +126,7 @@
 					}
 					else{
 						cfg.nickname=cfg.nickname||'无名玩家';
-						cfg.avatar=cfg.nickname||'caocao';
+						cfg.avatar=cfg.nickname||'diaochan';
 						cfg.creator=id;
 						cfg.id=util.getid();
 						cfg.members=[id];
