@@ -1,9 +1,0 @@
-extension["新神周瑜"]={
-	intro:"",
-	author:"冰波水微",
-	netdisk:"",
-	forum:"",
-	version:"1.0",
-	files:["xin_shenzhouyu.jpg","extension.js","extension.js.bak"],
-	size:"58KB"
-};
