@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26e5b16c-7bf8-4a52-85bd-0e1bde388e3d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/extension/零号病人/extension.js" beforeDir="false" afterPath="$PROJECT_DIR$/extension/零号病人/extension.js" afterDir="false" />
-    </list>
+    <list default="true" id="26e5b16c-7bf8-4a52-85bd-0e1bde388e3d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,52 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mode/brawl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
-              <folding>
-                <element signature="e#1140#2198#0" />
-                <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
-                <element signature="e#3629#6989#0" />
-                <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
-                <element signature="e#7510#8002#0" />
-                <element signature="e#8041#8450#0" />
-                <element signature="e#8485#9012#0" />
-                <element signature="e#9047#9737#0" />
-                <element signature="e#10444#35780#0" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#35798#37258#0" />
-                <element signature="e#37277#41729#0" />
-                <element signature="e#41745#45756#0" />
-                <element signature="e#45778#49364#0" />
-                <element signature="e#49383#53719#0" />
-                <element signature="e#53724#53740#0" />
-                <element signature="e#53894#56209#0" />
-                <element signature="e#56228#67246#0" />
-                <element signature="e#67264#73892#0" />
-                <element signature="e#73903#105651#0" />
-                <element signature="e#105662#112783#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/extension/零号病人/extension.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
               <caret line="1614" column="7" lean-forward="true" selection-start-line="1614" selection-start-column="7" selection-end-line="1614" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mode/game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="50641" column="25" lean-forward="true" selection-start-line="50641" selection-start-column="25" selection-end-line="50641" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -73,6 +30,7 @@
       <find>saveConfig</find>
       <find>extensions</find>
       <find>幻化在</find>
+      <find>targets.cho</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -81,15 +39,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mode/brawl.js" />
         <option value="$PROJECT_DIR$/mode/game.js" />
         <option value="$PROJECT_DIR$/extension/零号病人/extension.js" />
+        <option value="$PROJECT_DIR$/mode/brawl.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="15" />
-    <option name="y" value="56" />
+    <option name="x" value="818" />
+    <option name="y" value="132" />
     <option name="width" value="1719" />
     <option name="height" value="970" />
   </component>
@@ -133,7 +91,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1596098158002" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1596098191270" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -159,16 +117,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596070430906</updated>
-      <workItem from="1596070444700" duration="2013000" />
+      <workItem from="1596070444700" duration="2325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2013000" />
+    <option name="totallyTimeSpent" value="2325000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="45" width="1375" height="776" extended-state="0" />
-    <editor active="true" />
+    <frame x="655" y="106" width="1375" height="776" extended-state="0" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -204,40 +161,24 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mode/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="50641" column="25" lean-forward="true" selection-start-line="50641" selection-start-column="25" selection-end-line="50641" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mode/brawl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
+        <state relative-caret-position="19">
+          <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
           <folding>
             <element signature="e#1140#2198#0" />
             <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
-            <element signature="e#3629#6989#0" />
-            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
-            <element signature="e#7510#8002#0" />
-            <element signature="e#8041#8450#0" />
-            <element signature="e#8485#9012#0" />
-            <element signature="e#9047#9737#0" />
-            <element signature="e#10444#35780#0" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#35798#37258#0" />
-            <element signature="e#37277#41729#0" />
-            <element signature="e#41745#45756#0" />
-            <element signature="e#45778#49364#0" />
-            <element signature="e#49383#53719#0" />
-            <element signature="e#53724#53740#0" />
-            <element signature="e#53894#56209#0" />
-            <element signature="e#56228#67246#0" />
             <element signature="e#67264#73892#0" />
             <element signature="e#73903#105651#0" />
             <element signature="e#105662#112783#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mode/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="50642" column="12" lean-forward="true" selection-start-line="50642" selection-start-column="12" selection-end-line="50642" selection-end-column="12" />
         </state>
       </provider>
     </entry>
