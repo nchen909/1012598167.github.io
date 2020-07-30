@@ -131,7 +131,7 @@ window.config={
 	connect_characters:[],
 	connect_cards:[],
 	plays:[],
-	extensions:[],
+	extensions:['零号病人'],
 	banned:[],
 	bannedcards:[],
 	forbidlist:[],
