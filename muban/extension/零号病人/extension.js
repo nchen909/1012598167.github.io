@@ -1609,7 +1609,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     }
     else if(id=='PatientZero_virus'){
     //target.die();
-    var next=targets.chooseToUse('请使用一张马拉松抵消【研究】');
+    var next=target.chooseToUse('请使用一张马拉松抵消【研究】');
     next.set('ai',function(card){    
     return 11-get.value(card);
     });

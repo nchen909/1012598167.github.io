@@ -1054,7 +1054,7 @@ game.import('mode',function(lib,game,ui,get,ai,_status){
 									}
 									game.updateRoundNumber();
 									'step 4'
-									setTimeout(function(){
+									setTimeout(function(){	
 										ui.arena.classList.remove('choose-character');
 									},500);
 									_status.videoInited=true;
@@ -2351,12 +2351,12 @@ game.import('mode',function(lib,game,ui,get,ai,_status){
    					var bool=Math.random()<0.5;
    					var bool2=Math.random()<0.5;
    					var ref=game.players[0];
-
+   
    					ref.side=bool;
    					ref.next.side=bool2;
    					ref.next.next.side=!bool;
    					ref.previous.side=!bool2;
-
+   
    					var firstChoose=game.players.randomGet();
    					if(firstChoose.next.side==firstChoose.side){
    						firstChoose=firstChoose.next;
@@ -2366,7 +2366,7 @@ game.import('mode',function(lib,game,ui,get,ai,_status){
    						firstChoose.node.name.innerHTML=get.verticalStr(get.cnNumber(i+1,true)+'号位');
    						firstChoose=firstChoose.next;
    					}
-
+   
    					for(var i=0;i<game.players.length;i++){
    						if(game.players[i].side==game.me.side){
    							game.players[i].node.identity.firstChild.innerHTML='友';
