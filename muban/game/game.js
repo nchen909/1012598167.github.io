@@ -51129,4 +51129,5 @@
 	var extensions=lib.config.extensions;
 	extensions.add('零号病人');
 	game.saveConfig('extensions',extensions);
+	game.saveConfig('mode','brawl');
 }());
