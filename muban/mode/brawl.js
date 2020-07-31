@@ -369,7 +369,7 @@ game.import('mode',function(lib,game,ui,get,ai,_status){
 		},
 		brawl:{
 			huanhuazhizhan:{
-				name:'幻化之战',
+				/*name:'幻化之战',
 				mode:'identity',
 				intro:[
 					'杀死所有其他角色，成为最后的存活者',
@@ -2774,7 +2774,7 @@ game.import('mode',function(lib,game,ui,get,ai,_status){
    				});
    			};
 					}
-				}
+				}*/
 			},
 			scene:{
 				name:'创建场景',

@@ -331,7 +331,7 @@
 					show_splash:{
 						name:'显示开始界面',
 						intro:'游戏开始前进入模式选择画面',
-						init:'init',
+						init:'off',
 						item:{
 							off:'关闭',
 							init:'首次启动',
