@@ -859,13 +859,8 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         order:5,
                     },
                     result:{
-                        target:function (player,target){
-                        if(get.attitude(player,target)<0){
-            return 10;    
-            } 
-            return 0;
-        },
-        player:1,
+                        target:-2,
+                        player:1,
                     },
                 },
             },
@@ -909,22 +904,27 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 fullskin:true,
                 type:"event",
                 enable:true,
+                selectTarget:2,
                  /*chongzhu:function(event,player){
 					var List=['PatientZero_interactor_bf_id','PatientZero_interactor_csj_id'];
 					return List.contains(player.identity)==false;
 				},*/
                 filterTarget:function (card,player,target){    
-    if(player.identity!='PatientZero_interactor_csj_id'&&player.identity!='PatientZero_interactor_bf_id') {return false;}
-    var id=target.identity;
-    var id2=player.identity;
+    var targets=ui.selected.targets;
+    if(targets.length==0){
+    return target.identity=='PatientZero_interactor_csj_id'||target.identity=='PatientZero_interactor_bf_id';
+    }else{
+    var id2=targets[1].identity;
+    var id = target.identity;
     if(id2=='PatientZero_interactor_csj_id'){
     return id=='PatientZero_virus';
     }else if (id2=='PatientZero_interactor_bf_id'){
     return id=='PatientZero_human';
+    }
 }
     },
                 content:function (){
-        player.discardPlayerCard(true,'h',target);
+        targets[0].discardPlayerCard(true,'h',targets[1]);
     },
                 ai:{
                     basic:{
@@ -934,7 +934,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                     },
                     result:{
                         target:function (player,target){                      
-            return 10;
+            return -2;
         },
         player:2,
                     },
@@ -991,7 +991,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     var num=target.storage.PatientZero_card_kuaidifugong;    
     var next=target.chooseToUse('请使用'+ (isNaN(num+1) ? 1 : num)+'个口罩抵消此次感染');
     next.set('ai',function(card){    
-    return 11-get.value(card);
+    return get.value(card);
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_kouzhao'&&get.name(card)!='PatientZero_card_kouzhao2') return false;
@@ -1015,18 +1015,18 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             }
         },
                     basic:{
-                        order:7.5,
-                        useful:4,
-                        value:9,
+                        order:9,
+                        useful:8,
+                        value:9.5,
                     },
                     result:{
-                   // player:10,
+                    player:2,
                         target:function (player,target){
-           var num=0;
-           get.attitude(player,target)<=0?num=1.5: num=-1.5;
+           var num=get.attitude(player,target);
+           //get.attitude(player,target)<=0 ? num=5 : num=-5;
            var id=target.name;
-           if(lib.translate[id].indexOf('专家')!=-1) num+=1;
-           if(lib.translate[id].indexOf('医生')!=-1) num+=1;
+           if(lib.translate[id].indexOf('专家')!=-1) num-=1;
+           if(lib.translate[id].indexOf('医生')!=-1) num-=1;
            //game.log(player,target,num)
            return num;  
             },
@@ -1202,7 +1202,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         value:9.2,
                     },
                     result:{
-                        target:2,
+                        target:-2,
                     },
                     tag:{
                         draw:2,
@@ -1220,7 +1220,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     },
                 content:function (){
                 if(!target.isHealthy){target.recover()}
-                else if(target.identity==PatientZero_interactor_hz_id){
+                else if(target.identity=='PatientZero_interactor_hz_id'){
                 target.init_human(false,true)
                 }
     },
@@ -1301,8 +1301,8 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         value:9.2,
                     },
                     result:{
-                        target:2,
-                        player:10,
+                        target:-2,
+                        player:3,
                     },
                     tag:{
                         draw:2,
@@ -1396,7 +1396,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         value:9.2,
                     },
                     result:{
-                        target:2,
+                        target:-2,
                     },
                     tag:{
                         draw:2,
@@ -1429,7 +1429,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         value:9.2,
                     },
                     result:{
-                        target:2,
+                        target:-2,
                     },
                     tag:{
                         draw:2,
@@ -1455,7 +1455,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             "PatientZero_card_wanhui":"晚会",
             "PatientZero_card_wanhui_info":"将贪官变为白痴",
             "PatientZero_card_shichang":"华南海鲜市场",
-            "PatientZero_card_shichang_info":"穿山甲弃置病毒一张牌或蝙蝠弃置人类一张牌",
+            "PatientZero_card_shichang_info":"令穿山甲弃置病毒一张牌或令蝙蝠弃置人类一张牌",
             "PatientZero_card_shelun":"社论",
             "PatientZero_card_shelun_info":"人类的注意力被分散，每人弃置一张牌",
             "PatientZero_card_linghao":"零号病人",
@@ -1604,7 +1604,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     'step 0'
     var next=player.chooseToUse('请使用一个口罩抵消此次感染');
     next.set('ai',function(card){    
-    return 11-get.value(card);
+    return get.value(card);
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_kouzhao'&&get.name(card)!='PatientZero_card_kouzhao2') return false;
@@ -1643,7 +1643,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     //target.die();
     var next=target.chooseToUse('请使用一张马拉松抵消【研究】');
     next.set('ai',function(card){    
-    return 11-get.value(card);
+    return get.value(card);
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_malasong') return false;
@@ -1715,7 +1715,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     player.logSkill('PatientZero_skill_baichi',result.targets);
     var next=result.targets[0].chooseToUse('请使用一个口罩抵消此次感染');
     next.set('ai',function(card){    
-    return 11-get.value(card);
+    return get.value(card);
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_kouzhao'&&get.name(card)!='PatientZero_card_kouzhao2') return false;
@@ -2086,7 +2086,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     if(result.targets.length){
      var target=result.targets[0];
         var hp=target.hp*2;
-        if(target.maxHp<hp){target.maxHp=hp;}
+        if(target.maxHp<hp&&target.maxHp<8){target.maxHp=hp;}
         target.hp=hp;
         target.update();
         }
@@ -2215,7 +2215,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             "PatientZero_skill_virus":"病毒",
             "PatientZero_skill_virus_info":"四个病毒的技能并不显示，需要玩家猜测，思考",
             "PatientZero_skill_RNAfz":"RNA复制",
-            "PatientZero_skill_RNAfz_info":"每轮你可以指定一个病毒血量翻倍",
+            "PatientZero_skill_RNAfz_info":"每轮你可以指定一个病毒血量翻倍(血上限最多为8)",
             "PatientZero_skill_baomo":"包膜",
             "PatientZero_skill_baomo_info":"病毒囊膜的主要功能是帮助病毒进入宿主细胞。<li>S亚型:你可以令一名患者失去一点体力。<li>L亚型:你可以令一名患者死亡。<li>每轮开始，你可以选择S亚型或L亚型发动(只能交替发动)",
             "PatientZero_skill_qirongjiao":"气溶胶",
@@ -2230,5 +2230,5 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     author:"mathskiller，Heroza，诗笺",
     diskURL:"",
     forumURL:"",
-    version:"1.0",
+    version:"1.1",
 },files:{"character":["PatientZero_human_tg.jpg"],"card":["PatientZero_card_linghao.png","PatientZero_card_zuanshi.png"],"skill":[]}}})
