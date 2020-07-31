@@ -1527,7 +1527,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
         return 6-get.value(card)
     },
     content:function (){
-        player.draw(1);
+        player.addMark('PatientZero_skill_chongzhu',1);
     },
     ai:{
         order:1,
