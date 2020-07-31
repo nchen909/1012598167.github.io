@@ -1811,7 +1811,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         content:function (){
                     'step 0'
                     player.chooseTarget(function(card,player,target){
-                    return target.identity=='PatientZero_human';
+                    	return target.identity=='PatientZero_human'&&target!=player;
                     }).set('forceDie',true).set('ai',function(target){
                     return get.attitude(player,target)>0;
                     });
