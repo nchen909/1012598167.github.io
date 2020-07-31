@@ -2774,8 +2774,8 @@ game.import('mode',function(lib,game,ui,get,ai,_status){
    				});
    			};
 					}
-				}
-			},*/
+				}*/
+			},
 			scene:{
 				name:'创建场景',
 				content:{
