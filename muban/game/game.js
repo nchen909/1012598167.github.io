@@ -7804,8 +7804,11 @@
 			reset:function(){
 				if(window.inSplash) return;
 				if(window.resetExtension){
+				    console.log("1");
 				    return;
+                    console.log("2");
 					if(confirm('游戏似乎未正常载入，是否禁用扩展并重新打开？')){
+                        console.log("3");
 						window.resetExtension();
 						window.location.reload();
 					}
