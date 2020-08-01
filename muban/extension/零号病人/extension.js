@@ -548,9 +548,11 @@ cardPile:function(list){
       var list2=[];
       //花色，点数，卡牌名
       for(var i=1 ; i<14 ; i++){
-      list2.push( [ "diamond" , i , "PatientZero_card_kouzhao"] )
-      list2.push( [ "diamond" , i , "PatientZero_card_kouzhao2"] );
-      if(i>=6&&i<13) list2.push( [ "diamond" , i , "PatientZero_card_kouzhao2"] );
+		  if(i>=1&i<7) list2.push( [ "diamond" , i , "PatientZero_card_kouzhao"] );
+		  if(i>=7&&i<14) list2.push( [ "diamond" , i , "PatientZero_card_kouzhao2"] );
+      // list2.push( [ "diamond" , i , "PatientZero_card_kouzhao"] )
+      // list2.push( [ "diamond" , i , "PatientZero_card_kouzhao2"] );
+      // if(i>=6&&i<13) list2.push( [ "diamond" , i , "PatientZero_card_kouzhao2"] );
       }     
       for(var i=2 ; i<14 ; i++){
       list2.push( [ "spade" , i , "PatientZero_card_chuanbo"] );      
@@ -563,18 +565,31 @@ cardPile:function(list){
       list2.push( [ "spade" , 1 , "PatientZero_card_linghao"] );
       
       list2.push( [ "heart" , 13 , "PatientZero_card_malasong"] );
-      list2.push( [ "heart" , 13 , "PatientZero_card_malasong"] );
+      for(var i=6 ; i<14 ; i++){
+      	list2.push( [ "heart" , i , "PatientZero_card_malasong"] );
+      }
+      // list2.push( [ "heart" , 13 , "PatientZero_card_malasong"] );
       
       list2.push( [ "heart" , 1 , "PatientZero_card_geli"] );
       
        for(var i=2 ; i<8 ; i++){
       list2.push( [ "club" , i , "PatientZero_card_shichang"] );      
       }
-      
-      list2.push( [ "heart" , 1 , "PatientZero_card_wanhui"] );
+	  list2.push( [ "diamond" , 8 , "PatientZero_card_shichang"] );
+	  list2.push( [ "diamond" , 9 , "PatientZero_card_shichang"] );
+
+	  list2.push( [ "heart" , 1 , "PatientZero_card_wanhui"] );
+
       list2.push( [ "club" , 1 , "PatientZero_card_shelun"] );
+	  for(var i=2 ; i<7 ; i++){
+		  list2.push( [ "diamond" , i , "PatientZero_card_shelun"] );
+	  }
+
       list2.push( [ "club" , 1 , "PatientZero_card_zuanshi"] );
       list2.push( [ "club" , 2 , "PatientZero_card_kuaidifugong"] );
+	  list2.push( [ "diamond" , 1 , "PatientZero_card_kuaidifugong"] );
+	  list2.push( [ "diamond" , 7 , "PatientZero_card_kuaidifugong"] );
+	  list2.push( [ "diamond" , 10 , "PatientZero_card_kuaidifugong"] );
       
       for(var i=8 ; i<14 ; i++){
       list2.push( [ "club" , i , "PatientZero_card_shiweijieru"] );      
@@ -586,20 +601,23 @@ cardPile:function(list){
       
       list2.push( [ "heart" , 4 , "PatientZero_card_huoshenshan"] );      
       list2.push( [ "heart" , 4 , "PatientZero_card_huoshenshan"] );      
-      list2.push( [ "heart" , 5 , "PatientZero_card_kongcheng"] );      
-      
-      for(var i=2 ; i<6 ; i++){
-      list2.push( [ "club" , i , "PatientZero_card_3E"] );      
-      }
-      for(var i=6 ; i<14 ; i++){
-      list2.push( [ "club" , i , "PatientZero_card_zhai"] );      
-      }
-      for(var i=5 ; i<13 ; i++){
-      list2.push( [ "heart" , i , "PatientZero_card_zhai"] );      
-      } 
-      list2.randomSort();
-      return list2;
-      },
+      list2.push( [ "heart" , 5 , "PatientZero_card_kongcheng"] );
+	  list2.push( [ "diamond" , 11 , "PatientZero_card_kongcheng"] );
+	  list2.push( [ "diamond" , 12 , "PatientZero_card_kongcheng"] );
+	  list2.push( [ "diamond" , 13 , "PatientZero_card_kongcheng"] );
+
+	  for(var i=2 ; i<6 ; i++){
+        list2.push( [ "club" , i , "PatientZero_card_3E"] );
+        }
+        for(var i=6 ; i<14 ; i++){
+        list2.push( [ "club" , i , "PatientZero_card_zhai"] );
+        }
+        for(var i=5 ; i<13 ; i++){
+        list2.push( [ "heart" , i , "PatientZero_card_zhai"] );
+        }
+        list2.randomSort();
+        return list2;
+        },
 gameStart:function(){
  for(var i=0;i<game.players.length;i++){   
      var id=game.players[i].group;
