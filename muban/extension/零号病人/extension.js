@@ -200,6 +200,57 @@ lib.brawl.PatientZero={
 						player=player.next;
 					}
 					while(player!=end);					
+					"step 1"
+					/*console.log=function(){
+					window.alert(arguments[0])
+					}*/
+					if(event.changeCard!='disabled'&&!_status.auto){
+						event.dialog=ui.create.dialog('是否使用手气卡？');
+						ui.create.confirm('oc');
+						event.custom.replace.confirm=function(bool){
+							_status.event.bool=bool;
+							game.resume();
+						}
+					}
+					else{
+						event.finish();
+					}
+					"step 2"
+					if(event.changeCard=='once'){
+						event.changeCard='disabled';
+					}
+					else if(event.changeCard=='twice'){
+						event.changeCard='once';
+					}
+					else if(event.changeCard=='disabled'){
+						event.bool=false;
+						return;
+					}
+					_status.imchoosing=true;
+					event.switchToAuto=function(){
+						_status.event.bool=false;
+						game.resume();
+					}
+					game.pause();
+					"step 3"
+					_status.imchoosing=false;
+					if(event.bool){
+						if(game.changeCoin){
+							game.changeCoin(-3);
+						}
+						var hs=game.me.getCards('h');
+						game.addVideo('lose',game.me,[get.cardsInfo(hs),[],[]]);
+						for(var i=0;i<hs.length;i++){
+							hs[i].discard(false);
+						}
+						game.me.directgain(get.cards(hs.length));
+						event.goto(2);
+					}
+					else{
+						if(event.dialog) event.dialog.close();
+						if(ui.confirm) ui.confirm.close();
+						event.finish();
+					}					
 				};
 					//新增函数:
 					//吃
@@ -473,7 +524,7 @@ lib.brawl.PatientZero={
 					trigger:{global:'dieBegin'},
         forced:true,
         filter:function(event,player){
-        return player==event.player&&player.identity=='PatientZero_interactor_hz_id';        
+        return player==_status.event.player&&player.identity=='PatientZero_interactor_hz_id';        
         },
         content:function(){
         player.init_human(false);
@@ -630,62 +681,62 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
               switch(identity1){
                 case 'PatientZero_human':
                   switch(identity2){
-                    case 'PatientZero_human':return 10;
-                    case 'PatientZero_interactor_csj_id':return 10;
-                    case 'PatientZero_interactor_hz_id':return 10;
-                    case 'PatientZero_interactor_bc_id':return 8;
-                    case 'PatientZero_interactor_bf_id':return -6;
-                    case 'PatientZero_virus':return -10;                    
+                    case 'PatientZero_human':return 10;break;
+                    case 'PatientZero_interactor_csj_id':return 10;break;
+                    case 'PatientZero_interactor_hz_id':return 10;break;
+                    case 'PatientZero_interactor_bc_id':return 8;break;
+                    case 'PatientZero_interactor_bf_id':return -6;break;
+                    case 'PatientZero_virus':return -10;   break;                 
                   }
                   break;
                 case 'PatientZero_interactor_csj_id':
                   switch(identity2){
-                    case 'PatientZero_human':return 10;
-                    case 'PatientZero_interactor_csj_id':return 10;
-                    case 'PatientZero_interactor_hz_id':return 10;
-                    case 'PatientZero_interactor_bc_id':return 10;
-                    case 'PatientZero_interactor_bf_id':return -5;
-                    case 'PatientZero_virus':return -10;       
+                    case 'PatientZero_human':return 10;break;
+                    case 'PatientZero_interactor_csj_id':return 10;break;
+                    case 'PatientZero_interactor_hz_id':return 10;break;
+                    case 'PatientZero_interactor_bc_id':return 10;break;
+                    case 'PatientZero_interactor_bf_id':return -5;break;
+                    case 'PatientZero_virus':return -10;       break;
                   }
                   break;
                 case 'PatientZero_interactor_hz_id':
                   switch(identity2){
-                    case 'PatientZero_human':return 10;
-                    case 'PatientZero_interactor_csj_id':return 10;
-                    case 'PatientZero_interactor_hz_id':return 10;
-                    case 'PatientZero_interactor_bc_id':return 10;
-                    case 'PatientZero_interactor_bf_id':return -5;
-                    case 'PatientZero_virus':return -10;       
+                    case 'PatientZero_human':return 10;break;
+                    case 'PatientZero_interactor_csj_id':return 10;break;
+                    case 'PatientZero_interactor_hz_id':return 10;break;
+                    case 'PatientZero_interactor_bc_id':return 10;break;
+                    case 'PatientZero_interactor_bf_id':return -5;break;
+                    case 'PatientZero_virus':return -10;       break;
                   }
                   break;
                 case 'PatientZero_interactor_bc_id':
                   switch(identity2){
-                    case 'PatientZero_human':return 10;
-                    case 'PatientZero_interactor_csj_id':return 10;
-                    case 'PatientZero_interactor_hz_id':return 10;
-                    case 'PatientZero_interactor_bc_id':return 10;
-                    case 'PatientZero_interactor_bf_id':return -5;
-                    case 'PatientZero_virus':return -10;       
+                    case 'PatientZero_human':return 10;break;
+                    case 'PatientZero_interactor_csj_id':return 10;break;
+                    case 'PatientZero_interactor_hz_id':return 10;break;
+                    case 'PatientZero_interactor_bc_id':return 10;break;
+                    case 'PatientZero_interactor_bf_id':return -5;break;
+                    case 'PatientZero_virus':return -10;       break;
                   }
                   break;
                   case 'PatientZero_interactor_bf_id':
                   switch(identity2){
-                    case 'PatientZero_human':return -10;
-                    case 'PatientZero_interactor_csj_id':return -10;
-                    case 'PatientZero_interactor_hz_id':return -10;
-                    case 'PatientZero_interactor_bc_id':return -10;
-                    case 'PatientZero_interactor_bf_id':return 10;
-                    case 'PatientZero_virus':return 10;       
+                    case 'PatientZero_human':return -10;break;
+                    case 'PatientZero_interactor_csj_id':return -10;break;
+                    case 'PatientZero_interactor_hz_id':return -10;break;
+                    case 'PatientZero_interactor_bc_id':return -10;break;
+                    case 'PatientZero_interactor_bf_id':return 10;break;
+                    case 'PatientZero_virus':return 10;       break;
                   }
                   break;
                   case 'PatientZero_virus':
                   switch(identity2){
-                    case 'PatientZero_human':return -10;
-                    case 'PatientZero_interactor_csj_id':return -10;
-                    case 'PatientZero_interactor_hz_id':return -10;
-                    case 'PatientZero_interactor_bc_id':return -10;
-                    case 'PatientZero_interactor_bf_id':return 5;
-                    case 'PatientZero_virus':return 10;       
+                    case 'PatientZero_human':return -10;break;
+                    case 'PatientZero_interactor_csj_id':return -10;break;
+                    case 'PatientZero_interactor_hz_id':return -8;break;
+                    case 'PatientZero_interactor_bc_id':return -5;break;
+                    case 'PatientZero_interactor_bf_id':return 5;break;
+                    case 'PatientZero_virus':return 10;       break;
                   }
                   break;
               }
@@ -803,14 +854,17 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"basic",
-                enable:true,
+                enable:function(event){
+                //console.log(_status.event) 
+                var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
+                if(List.contains(_status.event.player.identity)==false) return false;
+                return true
+                },
                 chongzhu:function(event,player){
 					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
 					return List.contains(player.identity)==false;
 				},
-                filterTarget:function (card,player,target){
-   var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-   if(List.contains(player.identity)==false) return false;
+                filterTarget:function (card,player,target){   
     var id=target.identity;
     return id=='PatientZero_interactor_bc_id'||id=='PatientZero_interactor_hz_id';       
     },
@@ -839,7 +893,10 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"basic",
-                enable:true,
+                enable:function(event){
+                //console.log(_status.event) 
+                return true
+                },
                 chongzhu:function(event,player){
 					var List=['PatientZero_human'];
 					return List.contains(player.identity)==false;
@@ -847,7 +904,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 filterTarget:function (card,player,target){
   //  if(target.identity=='PatientZero_human') {return false;}
     var id=target.identity;
-    return id=='PatientZero_interactor_bc_id'||id=='PatientZero_interactor_csj_id'||id=='PatientZero_interactor_bf_id';       
+    return id=='PatientZero_virus'||id=='PatientZero_interactor_bc_id'||id=='PatientZero_interactor_csj_id'||id=='PatientZero_interactor_bf_id';       
     },
                 content:function (){
         target.loseHp();
@@ -868,14 +925,13 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                /*chongzhu:function(event,player){
-					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					return List.contains(player.identity)==false;
-				},*/
-                filterTarget:function (card,player,target){                    
-					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					if( List.contains(player.identity)==false ) return false;				
+                enable:function(event){
+                //console.log(_status.event) 
+                var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
+		           			if( List.contains(_status.event.player.identity)==false ) return false;				
+                return true
+                },          
+                filterTarget:function (card,player,target){                    					
     var id=target.name;
     return id=='PatientZero_human_tg';
     },
@@ -903,28 +959,31 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:2,
-                 /*chongzhu:function(event,player){
-					var List=['PatientZero_interactor_bf_id','PatientZero_interactor_csj_id'];
-					return List.contains(player.identity)==false;
-				},*/
+                enable:function(event){
+                //console.log(_status.event) 
+                return true
+                },
+                selectTarget:1,                 
                 filterTarget:function (card,player,target){    
-    var targets=ui.selected.targets;
-    if(targets.length==0){
-    return target.identity=='PatientZero_interactor_csj_id'||target.identity=='PatientZero_interactor_bf_id';
-    }else{
-    var id2=targets[1].identity;
-    var id = target.identity;
-    if(id2=='PatientZero_interactor_csj_id'){
-    return id=='PatientZero_virus';
-    }else if (id2=='PatientZero_interactor_bf_id'){
-    return id=='PatientZero_human';
-    }
-}
+      var id=target.identity;
+      if(id=='PatientZero_virus') return game.hasPlayer(function(current){
+      return current.identity=='PatientZero_interactor_csj_id';
+      });
+      if(id=='PatientZero_human') return game.hasPlayer(function(current){
+      return current.identity=='PatientZero_interactor_bf_id';
+      });
+      return false;
     },
                 content:function (){
-        targets[0].discardPlayerCard(true,'h',targets[1]);
+                var id=target.identity;
+                var playerx;
+      if(id=='PatientZero_virus') playerx = game.filterPlayer(function(current){
+      return current.identity=='PatientZero_interactor_csj_id';
+      })[0];
+      if(id=='PatientZero_human') playerx = game.filterPlayer(function(current){
+      return current.identity=='PatientZero_interactor_bf_id';
+      })[0];
+        playerx.discardPlayerCard(true,'h',target);
     },
                 ai:{
                     basic:{
@@ -944,14 +1003,13 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                /*chongzhu:function(event,player){
-					var List=['PatientZero_human'];
-					return List.contains(player.identity)==false;
-				},*/
-                filterTarget:function (card,player,target){    
-    if(player.identity=='PatientZero_human') {return false;}
-    return target.identity=='PatientZero_human';
+                enable:function(event){
+                //console.log(_status.event) 
+                if(_status.event.player.identity=='PatientZero_human') {return false;}
+                return true
+                },                
+                filterTarget:function (card,player,target){        
+    return target.identity=='PatientZero_human'||target.identity=="PatientZero_interactor_hz_id";
     },
                 content:function (){
         if(target.countCards('h')>0){
@@ -976,14 +1034,17 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"basic",
-                enable:true,
+                enable:function(event){
+                //console.log(_status.event) 
+                if(_status.event.player.identity=='PatientZero_human') {return false;}
+                return true
+                },
                 chongzhu:function (event,player){
     return player.identity=='PatientZero_human';
     },
                 selectTarget:1,
                 filterTarget:function (card,player,target){
-        if(player.identity=='PatientZero_human'){return false;}
-        return target.identity!=player.identity;
+                return target.identity!=player.identity;
     },
                 content:function (){
     'step 0'
@@ -995,7 +1056,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_kouzhao'&&get.name(card)!='PatientZero_card_kouzhao2') return false;
-    return lib.filter.cardEnabled(card,player,'forceEnable');    
+    return true;    
     });   
     }
     else{target.loseHp();event.finish();return;}    
@@ -1003,7 +1064,8 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     if(!result.bool){
         game.log(target,'没有使用口罩');
         target.init_interactor();
-    }else if(target.storage.PatientZero_card_kuaidifugong){
+    }
+    else if(target.storage.PatientZero_card_kuaidifugong){
     target.storage.PatientZero_card_kuaidifugong--;
     event.goto(0)
     }
@@ -1019,17 +1081,8 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         useful:8,
                         value:9.5,
                     },
-                    result:{
-                    player:2,
-                        target:function (player,target){
-           var num=get.attitude(player,target);
-           //get.attitude(player,target)<=0 ? num=5 : num=-5;
-           var id=target.name;
-           if(lib.translate[id].indexOf('专家')!=-1) num-=1;
-           if(lib.translate[id].indexOf('医生')!=-1) num-=1;
-           //game.log(player,target,num)
-           return num;  
-            },
+                    result:{                   
+                        target:-5,
                     },
                 },
             },
@@ -1037,18 +1090,17 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:-1,
+                enable:function(event){
+                //console.log(_status.event) 
+                if(_status.event.player.identity!='PatientZero_human') {return false;}
+                return true
+                },
+                selectTarget:1,
                 cardcolor:"red",
-                toself:true,
-                filterTarget:function (card,player,target){
-        return player.identity=='PatientZero_human'&&target==player;
-    },
-               /*chongzhu:function(event,player){
-					var List=['PatientZero_human'];
-					return List.contains(player.identity)==false;
-				},*/
-                modTarget:true,
+                toself:true,                
+                filterTarget:function(card,player,target){
+                return target==player
+                },
                 content:function (){
                 target.addTempSkill('PatientZero_skill_zhai',{player:'phaseUseBegin'});
                 var evt=_status.event.getParent('phaseUse');
@@ -1077,9 +1129,11 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
+                enable:function(event){
+                //game.log(_status.event.player)
+                return true
+                },
                 filterTarget:function (card,player,target){
-        //if(player.identity=='PatientZero_human'){return false;}
         return target.identity!=player.identity;
     },
                 content:function (){
@@ -1092,7 +1146,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             if(typeof event.shaReq[player.playerid]!='number') event.shaReq[player.playerid]=1;
             if(typeof event.shaReq[target.playerid]!='number') event.shaReq[target.playerid]=1;
         }
-        event.playerCards=[];
+        _status.event.playerCards=[];
         event.targetCards=[];
         "step 1"
         event.trigger('PatientZero_card_linghao');
@@ -1109,7 +1163,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_kouzhao'&&get.name(card)!='PatientZero_card_kouzhao2') return false;
-    return lib.filter.cardEnabled(card,player,'forceEnable');    
+    return true;    
     });   
             if(event.shaRequired>1){
                 next.set('prompt2','共需使用'+event.shaRequired+'张口罩')
@@ -1126,7 +1180,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             }
         }
         "step 3"
-        if(event.target.isDead()||event.player.isDead()){
+        if(event.target.isDead()||_status.event.player.isDead()){
             event.finish();
         }
         else{
@@ -1141,7 +1195,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                     }
                 }
                 else{
-                    if(result.cards) event.playerCards.addArray(result.cards);
+                    if(result.cards) _status.event.playerCards.addArray(result.cards);
                     if(event.shaRequired>0) event.goto(2);
                     else{
                         event.turn=target;
@@ -1151,10 +1205,10 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             }
             else{
                 if(event.turn==target){
-                    target.loseHp(event.baseDamage+event.extraDamage);
+                    target.loseHp(1);
                 }
                 else{
-                    player.loseHp(target,event.baseDamage+event.extraDamage);
+                    player.loseHp(1);
                 }
             }
         }
@@ -1180,20 +1234,22 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:-1,
-                filterTarget:function (card,player,target){
+                enable:function(event){
+                //console.log(_status.event) 
+                if(game.countPlayer(function(current){return current.identity=="PatientZero_human"})==0) return false;
                 var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-                if(List.contains(player.identity)==false) return false;
+                if(List.contains(_status.event.player.identity)==false) return false;
+                return true;
+                },
+                /*filterTarget:function (card,player,target){               
                return target.identity=='PatientZero_human';
-    },
-    /*chongzhu:function(event,player){
-					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					return List.contains(player.identity)==false;
-				},*/
+    },    */
                 content:function (){
-                target.addTempSkill('PatientZero_skill_disable',{global:'roundStart'});
-                target.addSkill('PatientZero_skill_qianfu2');
+                var targets=game.filterPlayer(function(current){return current.identity=="PatientZerohuman"}) ;
+                for(var i=0;i<targets.length;i++){
+                targets[i].addTempSkill('PatientZero_skill_disable',{global:'roundStart'});
+                }
+                targets.randomGet().addSkill('PatientZero_skill_qianfu2');
     },
                 ai:{
                     basic:{
@@ -1213,7 +1269,10 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
+                enable:function(event){
+                //console.log(_status.event) 
+                return true
+                },
                 selectTarget:-1,
                 filterTarget:function (card,player,target){
         return true
@@ -1242,15 +1301,14 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:1,
-                /*chongzhu:function(event,player){
-					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					return List.contains(player.identity)==true;
-				},*/
-                filterTarget:function (card,player,target){
-     var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					if( List.contains(player.identity) ) return false;
+                enable:function(event){
+                //console.log(_status.event) 
+                var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
+			           		if( List.contains(_status.event.player.identity) ) return false;
+                return true
+                },
+                selectTarget:1,               
+                filterTarget:function (card,player,target){     
         return target.name=='PatientZero_human_zj'
     },
                 content:function (){
@@ -1280,15 +1338,14 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:-1,
-                /*chongzhu:function(event,player){
-					var List=['PatientZero_human'];
-					return List.contains(player.identity)==true;
-				},*/
-                filterTarget:function (card,player,target){
-        var List=['PatientZero_virus','PatientZero_interactor_bf_id'];
-        if(!List.contains(player.identity)) return false;
+                enable:function(event){
+                //console.log(_status.event) 
+                var List=['PatientZero_virus','PatientZero_interactor_bf_id'];
+                if(!List.contains(_status.event.player.identity)) return false;
+                return true
+                },
+                selectTarget:-1,                
+                filterTarget:function (card,player,target){       
         return player.identity!=target.identity&&target.identity=='PatientZero_human';
     },
                 content:function (){                
@@ -1313,19 +1370,20 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:-1,
-                /*chongzhu:function(event,player){
-					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					return List.contains(player.identity)==true;
-				},*/
-                filterTarget:function (card,player,target){
-        var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-        if(List.contains(player.identity)) return false
+                enable:function(event){
+                //console.log(_status.event) 
+                var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
+               if(List.contains(_status.event.player.identity)) return false
+                return true;
+                },
+                selectTarget:-1,              
+                filterTarget:function (card,player,target){        
+        //return true;
         return target.identity=='PatientZero_human'||target.identity=='PatientZero_interactor_hz_id';
     },
-                content:function (){                
-                target.addSkill('PatientZero_skill_shiweijieru');
+                content:function (){              
+                //if(target.identity=='PatientZero_human'||target.identity=='PatientZero_interactor_hz_id')  {
+                target.addSkill('PatientZero_skill_shiweijieru');                
     },
                 ai:{
                     basic:{
@@ -1345,17 +1403,24 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:1,
-                /*chongzhu:function(event,player){					
-					return player.name!="PatientZero_human_ys";
-				},*/
+                enable:function(event){
+                //console.log(_status.event) 
+                var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
+               if(List.contains(_status.event.player.identity)) return false
+                return true
+                },
+                selectTarget:1,                
                 filterTarget:function (card,player,target){
-        return player.name=='PatientZero_human_ys'&&target.identity=='PatientZero_human'&&target!=player;
+      var id=target.identity;      
+      if(target.name=="PatientZero_human_ys") return false
+      if(id=='PatientZero_human') return game.hasPlayer(function(current){
+      return current.name=='PatientZero_human_ys';
+      });
+      return false
     },
-                content:function (){                
+                content:function (){                                
                 target.addMark('PatientZero_skill_zhiliao',1);   
-               target.addSkill("PatientZero_skill_zhiliao_effect") 
+                target.addSkill("PatientZero_skill_zhiliao_effect") 
     },
                 ai:{
                     basic:{
@@ -1375,16 +1440,15 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:1,
-                /*chongzhu:function(event,player){
-					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					return List.contains(player.identity)==false;
-				},*/
-                filterTarget:function (card,player,target){
+                enable:function(event){
+                //console.log(_status.event) 
                 var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-                if(List.contains(player.identity)) return false;
-        return target.identity=='PatientZero_virus';
+                if(List.contains(_status.event.player.identity)) return false
+                return true
+                },
+                selectTarget:1,               
+                filterTarget:function (card,player,target){
+                return target.identity=='PatientZero_virus';
     },
                 content:function (){                
                 if(target.name=='PatientZero_virus3') target.clearSkills();
@@ -1407,16 +1471,15 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 audio:true,
                 fullskin:true,
                 type:"event",
-                enable:true,
-                selectTarget:1,
-                /*chongzhu:function(event,player){
-					var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-					return List.contains(player.identity)==false;
-				},*/
-                filterTarget:function (card,player,target){
+                enable:function(event){
+                //console.log(_status.event) 
                 var List=['PatientZero_interactor_bf_id','PatientZero_virus'];
-                if(List.contains(player.identity)==false) return false;
-        return player.identity!='PatientZero_human'&&target.name=='PatientZero_human_kdy';
+                if(List.contains(_status.event.player.identity)==false) return false
+                return true
+                },
+                selectTarget:1,               
+                filterTarget:function (card,player,target){
+                return player.identity!='PatientZero_human'&&target.name=='PatientZero_human_kdy';
     },
                 content:function (){                
                 target.storage.PatientZero_card_kuaidifugong = target.storage.PatientZero_card_kuaidifugong ||0;
@@ -1521,7 +1584,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
 				       return player.isPhaseUsing();
 				       },
 				       content:function(){
-				       player.removeMark('PatientZero_skill_chongzhu')
+				       player.removeMark('PatientZero_skill_chongzhu',1)
 				       },
 				       },
 				       discard:{
@@ -1560,19 +1623,21 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 },
                 popup:false,
                 forced:true,
-                filter:function(e,player){
+                filter:function(event,player,name){
                 var num=game.countPlayer(function (target){
                 if(target.identity!='PatientZero_human') {return false;}
                 return player!=target&&get.distance(player,target)<=1&&(!target.hasSkill('PatientZero_skill_zhai')||player.hasSkill('PatientZero_skill_qirongjiao2'));
                 });
-                return player.name=="PatientZero_virus2"&&num>0;
+                return player.name=="PatientZero_virus2"&&num>0&&player.hasSkill('PatientZero_skill_virus');
                 },
                 content:function (){  
                 'step 0'
                 player.chooseTarget(1,function (card,player,target){
                 if(target.identity!='PatientZero_human') {return false;}
                 return player!=target&&get.distance(player,target)<=1&&(!target.hasSkill('PatientZero_skill_zhai')||player.hasSkill('PatientZero_skill_qirongjiao2'));
-                });
+                }).ai=function(target){
+                return -get.attitude(player,target);
+                };
     'step 1'
     if(result.bool&&result.targets.length){
      var target=result.targets[0];
@@ -1594,7 +1659,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 trigger:{
                     global:"roundStart",
                 },
-                popup:false,
+                //popup:false,
                 forced:true,
                 filter:function (){
                 if(game.roundNumber<=1) return false;
@@ -1608,7 +1673,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_kouzhao'&&get.name(card)!='PatientZero_card_kouzhao2') return false;
-    return lib.filter.cardEnabled(card,player,'forceEnable');    
+    return true;
     });   
   'step 1'
     if(!result.bool){
@@ -1624,17 +1689,18 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
         var id=target.identity;
         if(id=='PatientZero_interactor_hz'||id=='PatientZero_virus') {return true;}
         return false;
-    },filter:function(event,player,name){
+    },
+    filter:function(event,player,name){
     return game.hasPlayer(function(target){
     var id=target.identity;
-        if(id=='PatientZero_interactor_hz'||id=='PatientZero_virus') {return true;}
+        if(id=='PatientZero_interactor_hz_id'||id=='PatientZero_virus') {return true;}
         return false;
     })
     },
                 content:function (){
                 'step 0'
     var id=target.identity;
-    if(id=='PatientZero_interactor_hz'){
+    if(id=='PatientZero_interactor_hz_id'){
     target.init_human(false,true) ;  
     event.finish();
     return;
@@ -1699,7 +1765,12 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                     player:"phaseUseBegin",
                 },
                 forced:true,
-                direct:true,
+                popup:false,
+                filter:function(event,player){
+                return game.countPlayer(function(target){
+                target.identity=='PatientZero_human'&&target!=player
+                })>0;
+                },
                 content:function (){    
     'step 0'
     player.chooseTarget(true,function(card,player,target){
@@ -1710,7 +1781,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
         else {return 1;}
     };
     'step 1'
-    if(result.targets&&result.targets.length){
+    if(result.bool&&result.targets&&result.targets.length){
     event.target=result.targets[0];
     player.logSkill('PatientZero_skill_baichi',result.targets);
     var next=result.targets[0].chooseToUse('请使用一个口罩抵消此次感染');
@@ -1719,7 +1790,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
     });
     next.set('filterCard',function(card){
     if(get.name(card)!='PatientZero_card_kouzhao'&&get.name(card)!='PatientZero_card_kouzhao2') return false;
-    return lib.filter.cardEnabled(card,player,'forceEnable');    
+    return true;
     });   
     }
   'step 2'
@@ -1781,7 +1852,6 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         sub:true,
                         enable:"phaseUse",
                         usable:1,
-                        selectTarget:1,
                         init:function (player){
                         lib.translate.PatientZero_skill_zhiliao_effect="治疗";
                         lib.translate.PatientZero_skill_zhiliao_effect_info="你的回合内，你可以失去一瓶“药”令一名患者或白痴回复一点体力或令其变为人类(其体力值必须为满)，或令一个病毒失去一点体力";
@@ -1789,17 +1859,25 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                         filter:function (event,player){
         return player.countMark('PatientZero_skill_zhiliao')>0&&game.players.length>1;
     },
-                        filterTarget:function (card,player,target){                        
-                        if((target.identity=='PatientZero_interactor_virus'||target.identity=='PatientZero_interactor_hz_id'||target.identity=='PatientZero_interactor_bc_id')&&player!=target) return true;
-                        return false;
+    ai:{
+    result:{
+    player:10,
+    target:function(player,target){
+    return get.attitude(player,target);
     },
+    },
+    },
+                        filterTarget:function (card,player,target){                        
+                        return (target.identity=='PatientZero_interactor_virus'||target.identity=='PatientZero_interactor_hz_id'||target.identity=='PatientZero_interactor_bc_id')&&player!=target 
+                        },
                         content:function (){
                         player.removeMark('PatientZero_skill_zhiliao',1);     
                         //player.storage.PatientZero_skill_zhiliao-=1;                          
                     switch(target.identity){                  
                     case 'PatientZero_interactor_hz_id':
                     if(target.isHealthy()){
-                    target.init_human(false,true)}
+                    target.init_human(false,true)
+                    }
                     else{target.recover();}
                     break;
                     case 'PatientZero_interactor_bc_id':
@@ -2069,24 +2147,24 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 nobracket:true,
                 popup:false,
                 forced:true,
-                filter:function(e,player){
+                filter:function(e,player,name){
                 var bool=game.hasPlayer(function (target){
-        return target.identity=='PatientZero_virus';
+        return target.identity=='PatientZero_virus'&&target.maxHp<8;
     })
-                return player.name=="PatientZero_virus3"&&bool;
+                return player.name=="PatientZero_virus3"&&bool&&player.hasSkill('PatientZero_skill_virus');
                 },
                 content:function (){
          'step 0'
         player.chooseTarget(true,function (card,player,target){
-        return target.identity=='PatientZero_virus';
+        return target.identity=='PatientZero_virus'&&target.maxHp<8;
     }).ai=function(target){
-    return target.hp*2;
+    return 1;
     };
     'step 1'
     if(result.targets.length){
      var target=result.targets[0];
         var hp=target.hp*2;
-        if(target.maxHp<hp&&target.maxHp<8){target.maxHp=hp;}
+        if(target.maxHp<hp){target.maxHp=hp;}
         target.hp=hp;
         target.update();
         }
@@ -2098,8 +2176,8 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
                 },
                 popup:false,
                 forced:true,
-                filter:function(e,player){
-                return player.name=="PatientZero_virus4";
+                filter:function(e,player,name){
+                return player.name=="PatientZero_virus4"&&player.hasSkill('PatientZero_skill_virus');
                 },
                 content:function (){
         'step 0'        
@@ -2139,12 +2217,13 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             "_PatientZero_skill_qirongjiao":{
                 trigger:{
                     global:"gameStart",
-                    player:"dieBegin",
+                    player:"die",
                 },
                 popup:false,
                 forced:true,
-                filter:function(e,player){
-                if(player.name!="PatientZero_virus1") return false;       
+                forceDie:true,
+                filter:function(e,player,name){
+                if(player.name!="PatientZero_virus1"||player.hasSkill('PatientZero_skill_virus')==false) return false;       
         if(name=='gameStart'){
         window.foreval(game.players.concat(game.dead),'addSkill','PatientZero_skill_qirongjiao2');
         return false;
@@ -2215,7 +2294,7 @@ lib.characterIntro.PatientZero_interactor_hz="被病毒感染的人";
             "PatientZero_skill_virus":"病毒",
             "PatientZero_skill_virus_info":"四个病毒的技能并不显示，需要玩家猜测，思考",
             "PatientZero_skill_RNAfz":"RNA复制",
-            "PatientZero_skill_RNAfz_info":"每轮你可以指定一个病毒血量翻倍(血上限最多为8)",
+            "PatientZero_skill_RNAfz_info":"每轮你可以指定一个病毒血量翻倍(每个病毒限两次)",
             "PatientZero_skill_baomo":"包膜",
             "PatientZero_skill_baomo_info":"病毒囊膜的主要功能是帮助病毒进入宿主细胞。<li>S亚型:你可以令一名患者失去一点体力。<li>L亚型:你可以令一名患者死亡。<li>每轮开始，你可以选择S亚型或L亚型发动(只能交替发动)",
             "PatientZero_skill_qirongjiao":"气溶胶",
